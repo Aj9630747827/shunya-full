@@ -6,6 +6,8 @@ import CowCraft from './pages/CowCraft'
 import FlexiGlam from './pages/FlexiGlam'
 import ContactForm from './components/ContactForm'
 import './styles/index.css'
+import logoShunya from './assets/logo-shunya.png'
+
 
 export default function App(){
   return (
@@ -37,7 +39,7 @@ function SiteHeader(){
   to="/"
   className="flex items-center gap-3 focus:outline-none focus:ring-0 active:outline-none active:ring-0"
 >
-          <img src="/src/assets/logo-shunya.png" alt="Shunya logo" className="h-[4rem] w-auto" />
+          <img src={logoShunya} alt="Shunya logo" className="h-[4rem] w-auto" />
           <div className="hidden md:block leading-tight">
             <div className="text-2xl font-extrabold tracking-tight text-shunyaDark">Shunya</div>
             <div className="text-sm text-gray-600 font-medium">Cow Craft Naturals • Flexi Glam</div>
