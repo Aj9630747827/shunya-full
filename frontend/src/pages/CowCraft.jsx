@@ -57,7 +57,7 @@ export default function CowCraft(){
         {/* Image block unchanged */}
         <div className="rounded-2xl overflow-hidden shadow-xl gentle-bounce">
   <img
-    src="/src/assets/gallery/cow-logo.png"
+    src="/cow-logo.png"
     alt="Cow Craft product"
     className="w-full object-cover 
                h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[26rem]"

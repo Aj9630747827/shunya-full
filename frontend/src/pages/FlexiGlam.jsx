@@ -41,7 +41,7 @@ brand looks impressive from factory floor to customer hands.
 
   <div className="rounded-2xl overflow-hidden shadow-xl order-1 lg:order-2 gentle-bounce">
     <img
-      src="/src/assets/gallery/flexi-sample.jpeg"
+      src="/flexi-sample.jpeg"
       alt="Flexi Glam sample"
       className="w-full object-cover  h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[26rem]"
     />
