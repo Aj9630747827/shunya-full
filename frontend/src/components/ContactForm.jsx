@@ -34,7 +34,6 @@ export default function ContactForm() {
 
   function submit(e) {
   e.preventDefault();
-  setStatus("saving");
 
   const waNumbers = {
     "Cow Craft Naturals": "+919630747827",
@@ -51,26 +50,10 @@ export default function ContactForm() {
 
   const waUrl = `https://wa.me/${num.replace(/[^0-9]/g, "")}?text=${text}`;
 
-  // 🚀 1) Immediately open WhatsApp (so no delay, no popup blocking)
+  // 🚀 Open WhatsApp immediately - No saving to backend
   window.open(waUrl, "_blank");
 
-  // 🚀 2) Fire-and-forget background save to backend
-  fetch(`${API_BASE}/api/leads`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(lead),
-  })
-    .then((res) => {
-      if (res.ok) {
-        setStatus("saved");
-      } else {
-        setStatus("error");
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      setStatus("error");
-    });
+  setStatus("saved");
 }
 
 
