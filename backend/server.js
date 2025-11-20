@@ -1,0 +1,10 @@
+
+require('dotenv').config()
+const express=require('express'),bodyParser=require('body-parser'),path=require('path'),cors=require('cors'),Database=require('better-sqlite3')
+const app=express();app.use(cors());app.use(bodyParser.json())
+const dbPath=path.join(__dirname,'db','leads.db');const db=new Database(dbPath)
+db.prepare(`CREATE TABLE IF NOT EXISTS leads (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,email TEXT,phone TEXT,company TEXT,message TEXT,created_at DATETIME DEFAULT CURRENT_TIMESTAMP)`).run()
+app.post('/api/leads',(req,res)=>{try{const{name,email,phone,company,message}=req.body;const stmt=db.prepare('INSERT INTO leads (name,email,phone,company,message) VALUES (?,?,?,?,?)');const info=stmt.run(name,email,phone,company,message);res.json({ok:true,id:info.lastInsertRowid})}catch(e){console.error(e);res.status(500).json({ok:false,error:'db_error'})}})
+app.get('/api/leads',(req,res)=>{try{const rows=db.prepare('SELECT * FROM leads ORDER BY created_at DESC LIMIT 200').all();res.json({ok:true,leads:rows})}catch(e){console.error(e);res.status(500).json({ok:false,error:'db_error'})}})
+app.use(express.static(path.join(__dirname,'..','frontend','dist')));app.get('*',(req,res)=>res.sendFile(path.join(__dirname,'..','frontend','dist','index.html')))
+const PORT=process.env.PORT||4000;app.listen(PORT,()=>console.log('Server listening on',PORT))

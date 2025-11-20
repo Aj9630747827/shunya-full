@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom font fallback */
+:root { --muted: #6b7280; }
+
+body {
+  @apply bg-gradient-to-br from-emerald-50 to-amber-50 min-h-screen text-slate-900;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* glass card look */
+.card-glass {
+  background: rgba(255,255,255,0.74);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Gradient CTA */
+.btn-gradient {
+  background: linear-gradient(90deg,#2F6A3F,#7AE03F);
+}
+
+/* shimmering placeholder for gallery */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* subtle focus rings for accessibility */
+:focus {
+  outline: none;
+}
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 4px rgba(46, 163, 84, 0.16);
+  border-radius: 8px;
+}
+/* ---------- Fancy interactive styles (add to index.css) ---------- */
+
+/* Smooth transitions for most interactive elements */
+.interactive {
+  transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s cubic-bezier(.2,.9,.2,1), opacity .15s;
+  will-change: transform, box-shadow;
+}
+
+/* Raised hover */
+.hover-raise:hover, .hover-raise:focus {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(12, 34, 18, 0.12);
+}
+
+/* Subtle press */
+.active-press:active {
+  transform: translateY(0) scale(.995);
+  box-shadow: 0 8px 20px rgba(12, 34, 18, 0.08);
+}
+
+/* Gradient border glow */
+.gradient-outline {
+  position: relative;
+  z-index: 0;
+}
+.gradient-outline::after{
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg,#2F6A3F, #7AE03F);
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity .24s ease;
+  pointer-events: none;
+}
+.gradient-outline:hover::after,
+.gradient-outline:focus-within::after{
+  opacity: .55;
+}
+
+/* Nav link animated underline */
+.nav-underline {
+  position: relative;
+  padding-bottom: 3px;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg,#2F6A3F,#7AE03F);
+  transition: width .28s cubic-bezier(.2,.9,.2,1);
+}
+.nav-underline:hover::after,
+.nav-underline:focus::after {
+  width: 100%;
+}
+
+/* Chip (company toggle) */
+.chip {
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.5rem .9rem;
+  border-radius:999px;
+  border:1px solid rgba(16,24,40,0.06);
+  background: rgba(255,255,255,0.85);
+  color: #0f172a;
+  cursor:pointer;
+  user-select:none;
+  transition: transform .16s, box-shadow .16s, background .16s;
+  box-shadow: 0 6px 18px rgba(6,9,8,0.04);
+}
+.chip:hover { transform: translateY(-4px); }
+.chip:active { transform: translateY(-1px) scale(.996); }
+
+/* Selected chip */
+.chip.selected {
+  background: linear-gradient(90deg,#2F6A3F,#7AE03F);
+  color: white;
+  box-shadow: 0 20px 50px rgba(46,163,84,0.14);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* Styled select fallback (hidden visually if using chips) */
+.select-custom{
+  appearance:none;
+  padding:.75rem 1rem;
+  border-radius:.6rem;
+  border:1px solid #e6e7eb;
+  background: #fff;
+  transition: box-shadow .15s;
+}
+.select-custom:focus{
+  box-shadow: 0 0 0 5px rgba(46,163,84,0.12);
+  outline: none;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s;
+}
+.card-lift:hover, .card-lift:focus-within {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(8,22,12,0.12);
+}
+
+/* Gallery tile hover zoom */
+.gallery-tile {
+  overflow:hidden;
+  position:relative;
+}
+.gallery-tile img {
+  transition: transform .6s cubic-bezier(.2,.9,.2,1);
+  transform-origin:center;
+}
+.gallery-tile:hover img, .gallery-tile:focus-within img {
+  transform: scale(1.12) rotate(-1deg);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+/* Testimonial hover highlight */
+.testimonial {
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  border:1px solid rgba(6,9,8,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
+}
+.testimonial:hover {
+  transform: translateY(-8px);
+  border-color: rgba(46,163,84,0.12);
+  box-shadow: 0 22px 48px rgba(6,10,8,0.08);
+}
+
+/* CTA micro-interaction: icon slide */
+.cta-icon {
+  display:inline-block;
+  transform: translateX(0);
+  transition: transform .22s;
+}
+.btn-gradient:hover .cta-icon {
+  transform: translateX(6px);
+}
+html {
+  font-size: 17px; /* default Tailwind uses 16px → this scales everything ~6% larger */
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+.gentle-bounce {
+  animation: gentleBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes gentleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+/* --- Gallery section --- */
+#gallery {
+  scroll-margin-top: 7rem;
+}
+
+#gallery h3 {
+  letter-spacing: -0.02em;
+}
+
+#gallery > p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Slight separation between Cow Craft & Flexi sections on large screens */
+#gallery section.mb-10 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* --- Tiles --- */
+.gallery-tile {
+  position: relative;
+  border-radius: 1.1rem;
+  background: #f7f9f3; /* soft, near your page bg */
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(203, 213, 225, 0.5); /* light border */
+  overflow: hidden;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
+}
+
+/* Hover: gentle lift and slightly stronger border */
+.gallery-tile.card-lift.interactive:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 16px 34px rgba(15, 23, 42, 0.14);
+  border-color: rgba(148, 163, 184, 0.8);
+  background: #f9faf5;
+}
+
+/* very subtle highlight on top, not too glow-y */
+.gallery-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.35),
+    transparent 65%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.gallery-tile.card-lift.interactive:hover::before {
+  opacity: 1;
+}
+
+/* Images inside tiles */
+.gallery-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 240ms ease,
+    filter 240ms ease,
+    opacity 160ms ease;
+}
+
+/* Slight zoom & richer color on hover */
+.gallery-tile.card-lift.interactive:hover img {
+  transform: scale(1.03);
+  filter: saturate(1.04) contrast(1.03);
+}
+
+/* When no image (placeholder div), use a soft pattern */
+.gallery-tile > div {
+  background: repeating-linear-gradient(
+    45deg,
+    #e5e7eb,
+    #e5e7eb 6px,
+    #f3f4f6 6px,
+    #f3f4f6 12px
+  );
+}
