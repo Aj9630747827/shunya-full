@@ -32,7 +32,7 @@ export default function ContactForm() {
     setLead((prev) => ({ ...prev, company: name }));
   }
 
-  async function submit(e) {
+  function submit(e) {
   e.preventDefault();
   setStatus("saving");
 
@@ -40,34 +40,39 @@ export default function ContactForm() {
     "Cow Craft Naturals": "+919630747827",
     "Flexi Glam": "+919630747827",
   };
+
   const num = waNumbers[lead.company] || "+919630747827";
+
   const text = encodeURIComponent(
     `Hello, I'm ${lead.name || "a customer"}. ${
       lead.message || "Please share details."
     } Contact: ${lead.phone || lead.email}`
   );
+
   const waUrl = `https://wa.me/${num.replace(/[^0-9]/g, "")}?text=${text}`;
 
-  try {
-    const res = await fetch(`${API_BASE}/api/leads`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(lead),
-    });
+  // 🚀 1) Immediately open WhatsApp (so no delay, no popup blocking)
+  window.open(waUrl, "_blank");
 
-    if (res.ok) {
-      setStatus("saved");
-    } else {
+  // 🚀 2) Fire-and-forget background save to backend
+  fetch(`${API_BASE}/api/leads`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(lead),
+  })
+    .then((res) => {
+      if (res.ok) {
+        setStatus("saved");
+      } else {
+        setStatus("error");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
       setStatus("error");
-    }
-  } catch (err) {
-    console.error(err);
-    setStatus("error");
-  } finally {
-    // Always try to open WhatsApp
-    window.open(waUrl, "_blank");
-  }
+    });
 }
+
 
   return (
     <section
