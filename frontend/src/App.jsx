@@ -58,7 +58,7 @@ function SiteHeader() {
   return (
     <header className="fixed w-full top-0 left-0 z-40 bg-white/90 backdrop-blur-sm border-b border-white/40 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+        <Link to="/" className="flex items-center gap-3 outline-none focus:outline-none focus:ring-0" onClick={() => setMobileOpen(false)}>
           {/* Import logo as module in your header file instead of /src/... */}
 <img
   src="/logo-shunya.png"

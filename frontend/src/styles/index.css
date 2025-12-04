@@ -297,3 +297,6 @@ html {
     #f3f4f6 12px
   );
 }
+.interactive:active {
+  transform: scale(1) !important;
+}
