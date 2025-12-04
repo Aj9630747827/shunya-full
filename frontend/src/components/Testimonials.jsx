@@ -3,7 +3,7 @@ import React from 'react'
 
 const data = [
   {name:'Rohit K.', text:'Excellent product quality — our crops responded well to the compost.'},
-  {name: 'Priya S.', text: 'Flexi Glam’s PVC patches are durable and give our apparel a premium, brand-right finish.'},
+  {name: 'Priya S.', text: 'PVC patches are durable and give our apparel a premium, brand-right finish.'},
 
   {name:'Anand T.', text:'Timely delivery and great customer support.'}
 ]

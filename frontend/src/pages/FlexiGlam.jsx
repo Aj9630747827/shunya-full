@@ -8,7 +8,7 @@ export default function FlexiGlam(){
       <section className="grid lg:grid-cols-2 gap-8 items-start">
   <div className="order-2 lg:order-1">
     <h1 className="text-4xl font-extrabold text-shunyaDark">
-      Flexi Glam — Sustainable PVC Branding Accessories
+    Garment Accessories — Sustainable PVC Branding Accessories
     </h1>
 
     <p className="mt-4 text-gray-700 max-w-xl">

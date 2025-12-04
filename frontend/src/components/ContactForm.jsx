@@ -9,10 +9,10 @@ export default function ContactForm() {
 
   // Determine default company based on current path
   let defaultCompany = "Cow Craft Naturals";
-  if (location.pathname.includes("/flexi")) defaultCompany = "Flexi Glam";
+if (location.pathname.includes("/flexi")) defaultCompany = "Garment Accessories";
   if (location.pathname.includes("/cow")) defaultCompany = "Cow Craft Naturals";
 
-  const companies = ["Cow Craft Naturals", "Flexi Glam"];
+  const companies = ["Cow Craft Naturals", "Garment Accessories"];
 
   const [lead, setLead] = useState({
     name: "",
@@ -35,10 +35,10 @@ export default function ContactForm() {
   function submit(e) {
   e.preventDefault();
 
-  const waNumbers = {
-    "Cow Craft Naturals": "+919630747827",
-    "Flexi Glam": "+919630747827",
-  };
+ const waNumbers = {
+  "Cow Craft Naturals": "+919630747827",
+  "Garment Accessories": "+919630747827",
+};
 
   const num = waNumbers[lead.company] || "+919630747827";
 

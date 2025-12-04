@@ -9,10 +9,8 @@ export default function Home(){
   return (
     <div>
       <Hero />
-      <section className="max-w-6xl mx-auto px-6 mt-12">
-        <Features />
-      </section>
-      <section className="max-w-6xl mx-auto px-6 mt-12">
+      
+      <section className="max-w-6xl mx-auto px-6 mt-3">
         <Gallery />
       </section>
       <section className="max-w-4xl mx-auto px-6 mt-12">
