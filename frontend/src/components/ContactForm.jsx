@@ -36,8 +36,8 @@ if (location.pathname.includes("/flexi")) defaultCompany = "Garment Accessories"
   e.preventDefault();
 
  const waNumbers = {
-  "Cow Craft Naturals": "+919630747827",
-  "Garment Accessories": "+919630747827",
+  "Cow Craft Naturals": "+919217270477",
+  "Garment Accessories": "+919217270477",
 };
 
   const num = waNumbers[lead.company] || "+919630747827";
