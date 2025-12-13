@@ -148,12 +148,29 @@ function SiteFooter() {
   return (
     <footer className="mt-28 border-t border-white/30 bg-white/60 backdrop-blur-md py-10 text-base">
       <div className="max-w-6xl mx-auto px-6 text-center text-gray-700">
-        <div>Shunya — parent company for Cow Craft Naturals & Garment Accessories</div>
-        <div className="mt-3">
-          Customer care:+91-9217270477
+        <div>
+          Shunya — parent company for Cow Craft Naturals & Garment Accessories
         </div>
-        <div className="mt-3 text-sm">© {new Date().getFullYear()} Shunya</div>
+
+        <div className="mt-3">
+          Customer care: +91-9217270477
+        </div>
+
+        <div className="mt-2">
+          Email:{" "}
+          <a
+            href="mailto:info@shunya"
+            className="text-shunyaDark hover:underline"
+          >
+            info@shunya
+          </a>
+        </div>
+
+        <div className="mt-3 text-sm">
+          © {new Date().getFullYear()} Shunya
+        </div>
       </div>
     </footer>
   );
 }
+
