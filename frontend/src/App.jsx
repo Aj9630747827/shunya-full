@@ -159,7 +159,7 @@ function SiteFooter() {
         <div className="mt-2">
           Email:{" "}
           <a
-            href="mailto:info@shunya"
+            href="mailto:info@shunyaglobal"
             className="text-shunyaDark hover:underline"
           >
             info@shunya
