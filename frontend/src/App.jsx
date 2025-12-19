@@ -159,10 +159,10 @@ function SiteFooter() {
         <div className="mt-2">
           Email:{" "}
           <a
-            href="mailto:info@shunyaglobal"
+            href="mailto:info@shunyaglobal.com"
             className="text-shunyaDark hover:underline"
           >
-            info@shunya
+            info@shunyaglobal.com
           </a>
         </div>
 
