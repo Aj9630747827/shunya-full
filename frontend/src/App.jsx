@@ -1,6 +1,7 @@
 // frontend/src/App.jsx
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 import Home from "./pages/Home";
 import CowCraft from "./pages/CowCraft";
@@ -29,6 +30,7 @@ export default function App() {
         </Routes>
       </main>
       <SiteFooter />
+      <Analytics />
     </BrowserRouter>
   );
 }
